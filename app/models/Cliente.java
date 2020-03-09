@@ -1,11 +1,12 @@
 package models;
 
+import io.ebean.Finder;
 import io.ebean.Model;
 
 import javax.persistence.*;
 
 @Entity
-public class Cliente extends Model{
+public class Cliente extends Model {
 
     @Id
     public Integer id;
@@ -15,15 +16,6 @@ public class Cliente extends Model{
     public String tlf;
     public String email;
 
-    public Cliente() {
-    }
+    public static final Finder<Integer, Cliente> find = new Finder<>(Cliente.class);
 
-    public Cliente(Integer id, String dni, String nombre, String apellido, String tlf, String email) {
-        this.id = id;
-        this.dni = dni;
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.tlf = tlf;
-        this.email = email;
-    }
 }
